@@ -3,222 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Digital | Premium Web Infrastructure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Pramangsu Acharjee | Lumina Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #00d2ff;
-            --bg: #050505;
-            --card: #111;
+            --accent: #00d2ff; /* High-Tech Blue */
+            --bg: #030303;
+            --card: #0a0a0a;
             --text: #ffffff;
         }
 
-        body { background-color: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; margin: 0; line-height: 1.6; scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Top Header / Branding */
+        .top-nav {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #111;
+        }
+
+        .name-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .profession-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            font-weight: 300;
+        }
 
         /* Hero Section */
-        header {
-            height: 90vh;
+        .hero {
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            background: radial-gradient(circle at center, #111 0%, #050505 100%);
         }
 
-        .badge {
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
+        .hero h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            max-width: 800px;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; letter-spacing: -3px; line-height: 0.9; }
-        h1 span { color: var(--accent); }
-        .subtitle { color: #888; max-width: 600px; margin-top: 25px; font-size: 1.2rem; font-weight: 300; }
+        /* One-Click Contact Buttons */
+        .contact-grid {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-        .section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .action-btn {
+            padding: 18px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        /* Project Gallery Style */
-        .project-card {
+        .call-btn { background: var(--accent); color: black; }
+        .mail-btn { background: white; color: black; }
+        
+        .action-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); }
+
+        /* The "Why We Need This" Pitch */
+        .pitch-section {
             background: var(--card);
-            border-radius: 24px;
-            overflow: hidden;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #111;
+        }
+
+        .pitch-container { max-width: 900px; margin: auto; }
+
+        .pitch-card {
+            background: #000;
             border: 1px solid #222;
-            transition: 0.4s;
-        }
-
-        .project-card:hover { border-color: var(--accent); transform: scale(1.02); }
-        .project-info { padding: 25px; }
-        .project-tag { color: var(--accent); font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
-
-        .feature-card {
-            background: var(--card);
             padding: 40px;
-            border-radius: 32px;
+            border-radius: 24px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .pitch-card h3 { color: var(--accent); margin-top: 0; }
+        .pitch-card p { color: #888; line-height: 1.8; }
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        /* Animated Dot for "Live" status */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            background: #111;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            margin-bottom: 20px;
             border: 1px solid #222;
         }
-
-        .cta-btn {
-            background: white; color: black; border: none; padding: 20px 40px; 
-            border-radius: 18px; font-weight: bold; font-size: 1rem; cursor: pointer; 
-            transition: 0.3s; margin-top: 40px; text-decoration: none; display: inline-block;
-        }
-        .cta-btn:hover { background: var(--accent); color: white; }
-
-        .form-section { background: var(--card); padding: 40px; border-radius: 40px; border: 1px solid #222; margin-top: 50px; }
-        input, select, textarea {
-            width: 100%; background: #000; border: 1px solid #333; padding: 18px; 
-            margin-bottom: 15px; border-radius: 15px; color: white; font-family: inherit;
-        }
-
-        footer { text-align: center; padding: 60px; color: #333; font-size: 0.9rem; }
+        .dot { width: 8px; height: 8px; background: #2ed573; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px #2ed573; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="badge">Lumina Digital Architecture</div>
-    <h1>Global<span>Infrastructure</span></h1>
-    <p class="subtitle">We engineer high-performance digital storefronts and secure ordering systems for the modern economy.</p>
-    <a href="#apply" class="cta-btn">Initiate Project</a>
-</header>
+    <div class="top-nav">
+        <h1 class="name-brand">Pramangsu Acharjee</h1>
+        <div class="profession-tag">Web Infrastructure Architect</div>
+    </div>
 
-<div class="section">
-    <h2 style="text-align: center; font-size: 2rem;">Recent Deployments</h2>
-    <div class="grid">
-        <div class="project-card">
-            <div style="height: 200px; background: #222; display: flex; align-items: center; justify-content: center; color: #444;">[ Project Visual ]</div>
-            <div class="project-info">
-                <div class="project-tag">Case Study: F&B Retail</div>
-                <h3 style="margin: 10px 0;">Pizza-Lite Digital Storefront</h3>
-                <p style="color: #666; font-size: 0.9rem;">Commission-free ordering system with encrypted customer data flow.</p>
-                <a href="https://luminalearnin.github.io/Pizza-lite/" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: bold;">VIEW LIVE DEPLOYMENT →</a>
+    <section class="hero">
+        <div class="status"><span class="dot"></span> SECURE INFRASTRUCTURE DEPLOYED</div>
+        <h2>Scale your restaurant with high-performance digital storefronts.</h2>
+        
+        <div class="contact-grid">
+            <a href="tel:6001299901" class="action-btn call-btn">
+                📞 CALL DIRECT
+            </a>
+            <a href="mailto:pramangsuacharjee883@gmail.com" class="action-btn mail-btn">
+                ✉️ SEND EMAIL
+            </a>
+        </div>
+    </section>
+
+    <section class="pitch-section">
+        <div class="pitch-container">
+            <h2>The Digital Standard</h2>
+            <div class="pitch-card">
+                <h3>Direct Sales. Zero Commissions.</h3>
+                <p>Third-party delivery apps take up to 25% of your profit. My systems allow you to reclaim your revenue by facilitating direct, commission-free orders from your customers.</p>
+            </div>
+            <div class="pitch-card">
+                <h3>Client Privacy Protected.</h3>
+                <p>We move away from risky staff-to-customer WhatsApp interaction. All orders flow through an encrypted private tunnel, keeping customer phone numbers secure and professional.</p>
+            </div>
+            <div class="pitch-card">
+                <h3>Global Tech for Local Excellence.</h3>
+                <p>Your restaurant deserves more than a social media page. You need a dedicated digital asset that works 24/7 to spread your services and secure your brand identity.</p>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<div class="section" id="apply">
-    <div class="form-section">
-        <h2 style="margin-top: 0;">Partner Consultation</h2>
-        <p style="color:#666;">Apply to secure a development slot for your business infrastructure.</p>
-        
-        <form action="https://formspree.io/f/myknpkrw" method="POST">
-            <input type="text" name="Company" placeholder="Company Name" required>
-            <input type="tel" name="Contact" placeholder="WhatsApp / Phone Number" required>
-            <select name="Tier">
-                <option value="Infrastructure_Setup">Infrastructure Setup (₹2,500)</option>
-                <option value="Pro_Architecture">Pro Architecture (₹10,000)</option>
-            </select>
-            <textarea name="Brief" placeholder="Primary Business Goal..." rows="4"></textarea>
-            <button type="submit" class="cta-btn" style="width:100%; margin-top:10px;">Submit Application</button>
-        </form>
-    </div>
-</div>
-
-<footer>
-    &copy; 2026 LUMINA DIGITAL. <br>
-    Global Standards. Precision Engineering.
-</footer>
+    <footer>
+        &copy; 2026 LUMINA DIGITAL | PRAMANGSU ACHARJEE<br>
+        DESIGNED FOR PRECISION. BUILT FOR SCALE.
+    </footer>
 
 </body>
 </html>
-            margin-bottom: 25px;
-        }
-
-        h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; letter-spacing: -3px; line-height: 0.9; }
-        h1 span { color: var(--accent); }
-        .subtitle { color: #888; max-width: 600px; margin-top: 25px; font-size: 1.2rem; font-weight: 300; }
-
-        .section { padding: 100px 20px; max-width: 1100px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-
-        .feature-card {
-            background: var(--card);
-            padding: 50px 40px;
-            border-radius: 32px;
-            border: 1px solid #222;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .feature-card:hover { border-color: var(--accent); transform: translateY(-10px); background: #161616; }
-        .feature-card h3 { color: var(--accent); margin-top: 0; font-size: 1.5rem; }
-
-        .cta-btn {
-            background: white; color: black; border: none; padding: 22px 45px; 
-            border-radius: 18px; font-weight: bold; font-size: 1.1rem; cursor: pointer; 
-            transition: 0.3s; margin-top: 40px; text-decoration: none; display: inline-block;
-        }
-        .cta-btn:hover { background: var(--accent); color: white; transform: scale(1.05); }
-
-        .form-section { background: var(--card); padding: 50px; border-radius: 40px; border: 1px solid #222; margin-top: 50px; }
-        input, select, textarea {
-            width: 100%; background: #000; border: 1px solid #333; padding: 18px; 
-            margin-bottom: 15px; border-radius: 15px; color: white; font-family: inherit; font-size: 1rem;
-        }
-
-        footer { text-align: center; padding: 60px; color: #333; font-size: 0.9rem; border-top: 1px solid #111; }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="badge">Global Digital Standards</div>
-    <h1>Lumina<span>Digital</span></h1>
-    <p class="subtitle">We engineer high-performance digital storefronts and private ordering infrastructure for the next generation of businesses.</p>
-    <a href="#apply" class="cta-btn">Secure Your Infrastructure</a>
-</header>
-
-<div class="section">
-    <h2 style="text-align: center; font-size: 2.5rem; letter-spacing: -1px;">Core Infrastructure</h2>
-    <div class="grid">
-        <div class="feature-card">
-            <h3>Direct Revenue</h3>
-            <p>Bypass the "Third-Party Tax." We build systems that allow businesses to keep 100% of their digital sales revenue.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Encrypted Flow</h3>
-            <p>Military-grade privacy for customer data. Our private ordering tunnels ensure numbers never leak to unauthorized staff.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Global UI/UX</h3>
-            <p>Aesthetic-first design principles that align with modern international trends. Fast, fluid, and viral-ready.</p>
-        </div>
-    </div>
-</div>
-
-<div class="section" id="apply">
-    <div class="form-section">
-        <h2 style="margin-top: 0; font-size: 2rem;">Partner With Us</h2>
-        <p style="color:#666;">We accept a limited number of global projects to maintain our deployment standards. Apply for a consultation below.</p>
-        
-        <form action="https://formspree.io/f/myknpkrw" method="POST">
-            <input type="text" name="Company_Name" placeholder="Company Name" required>
-            <input type="email" name="Email" placeholder="Business Email" required>
-            <input type="tel" name="Contact_Number" placeholder="Contact Number (WhatsApp/Telegram)" required>
-            <select name="Service_Interest">
-                <option value="Storefront_Architecture">Digital Storefront Architecture</option>
-                <option value="Private_Ordering_System">Private Ordering Infrastructure</option>
-                <option value="Full_Brand_Upgrade">Full Brand Upgrade</option>
-            </select>
-            <textarea name="Brief" placeholder="Describe your digital goals..." rows="4"></textarea>
-            <button type="submit" class="cta-btn" style="width:100%; margin-top:10px;">Submit Application</button>
-        </form>
-    </div>
-</div>
-
-<footer>
-    &copy; 2026 LUMINA DIGITAL ARCHITECTURE. <br>
-    Built for the world, deployed with precision.
-</footer>
-
-</body>
-      </html>
-              
