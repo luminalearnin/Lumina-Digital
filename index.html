@@ -12,28 +12,408 @@
             --card-bg: #0d0d0d;
             --border: rgba(255, 255, 255, 0.1);
             --text-dim: #888;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: white;
+            color: var(--white);
             font-family: 'Outfit', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 60px 20px;
+            line-height: 1.6;
         }
 
-        /* HERO SECTION (YOUR INTRO) */
+        /* HERO INTRO */
         .hero {
             text-align: center;
-            max-width: 700px;
+            max-width: 750px;
             margin-bottom: 80px;
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            letter-spacing: -2px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 0%, var(--tech-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--tech-blue);
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* CONTACT TERMINAL */
+        .contact-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--tech-blue);
+            background: rgba(0, 210, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* DEPLOYMENT TIERS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        .tier-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .tier-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 45px 35px;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        .tier-card:hover {
+            border-color: var(--tech-blue);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-10px);
+        }
+
+        .tier-label {
+            color: var(--tech-blue);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .tier-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tier-price span {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 30px 0 40px 0;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            color: var(--tech-blue);
+            font-weight: 700;
+        }
+
+        .select-btn {
+            width: 100%;
+            padding: 18px;
+            border-radius: 18px;
+            border: none;
+            background: var(--white);
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .select-btn:hover {
+            background: var(--tech-blue);
+            color: var(--white);
+        }
+
+        /* DATA MODAL */
+        #dataModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0f0f0f;
+            padding: 45px;
+            border-radius: 40px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid var(--border);
+        }
+
+        .modal-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .modal-header p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .input-group { margin-bottom: 22px; }
+        .input-group label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--tech-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            background: #151515;
+            border: 1px solid #222;
+            padding: 16px;
+            border-radius: 14px;
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus { border-color: var(--tech-blue); background: #1a1a1a; }
+
+        .continue-btn {
+            width: 100%;
+            padding: 20px;
+            background: #222;
+            color: #555;
+            border: none;
+            border-radius: 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: not-allowed;
+            transition: 0.4s;
+        }
+
+        .continue-btn.active {
+            background: var(--tech-blue);
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
+        }
+
+        .abort-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.5rem; }
+            .tier-card { width: 100%; }
+            .modal-content { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Pramangsu Acharjee</h1>
+        <h2>Web Infrastructure Architect</h2>
+        [span_0](start_span)<p>Designing secure, commission-free digital terminals for the modern enterprise[span_0](end_span). Built for absolute performance and long-term ownership.</p>
+        
+        <div class="contact-grid">
+            [span_1](start_span)<a href="tel:+916001299901" class="contact-btn">📞 +91 60012 99901[span_1](end_span)</a>
+            [span_2](start_span)<a href="mailto:pramangsuacharjee883@gmail.com" class="contact-btn">✉️ Email Architect[span_2](end_span)</a>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <span class="section-tag">Infrastructure Deployment Tiers</span>
+    </div>
+
+    <div class="tier-container">
+        <div class="tier-card">
+            <div class="tier-label">Managed Node</div>
+            <div class="tier-price">₹3,000<span>/setup</span></div>
+            <ul class="feature-list">
+                <li>₹1,000/month recurring maintenance</li>
+                <li>Full Architect Management</li>
+                <li>Priority Infrastructure Updates</li>
+                <li>Secure Managed Hosting</li>
+            </ul>
+            <button class="select-btn" onclick="openTerminal('Managed Node (₹3,000)')">Initialize Tier</button>
+        </div>
+
+        <div class="tier-card">
+            <div class="tier-label">Independent Core</div>
+            <div class="tier-price">₹10,000<span>/full</span></div>
+            <ul class="feature-list">
+                <li>One-time deployment cost</li>
+                <li>Pure Source Code Access</li>
+                <li>Zero recurring fees</li>
+                <li>Lifetime Infrastructure Control</li>
+            </ul>
+            <button class="select-btn" onclick="openTerminal('Independent Core (₹10,000)')">Initialize Tier</button>
+        </div>
+    </div>
+
+    <div id="dataModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>System Initialization</h2>
+                <p id="targetDisplay">Connecting to node...</p>
+            </div>
+
+            <form action="https://formspree.io/f/myknpkrw" method="POST" id="leadForm">
+                <input type="hidden" name="Deployment_Tier" id="tierInput">
+                
+                <div class="input-group">
+                    <label>Client Full Name *</label>
+                    <input type="text" name="name" id="userName" placeholder="Enter name" required oninput="validateForm()">
+                </div>
+
+                <div class="input-group">
+                    <label>Phone (Mandatory if no Email)</label>
+                    <input type="tel" name="phone" id="userPhone" placeholder="+91 ..." oninput="validateForm()">
+                </div>
+
+                <div class="input-group">
+                    <label>Email (Mandatory if no Phone)</label>
+                    <input type="email" name="email" id="userEmail" placeholder="name@domain.com" oninput="validateForm()">
+                </div>
+
+                <div class="input-group">
+                    <label>Physical Address *</label>
+                    <input type="text" name="address" id="userAddress" placeholder="Enter city, state" required oninput="validateForm()">
+                </div>
+
+                <div class="input-group">
+                    <label>Business Objective (Optional)</label>
+                    <textarea name="objective" rows="2" placeholder="Tell me about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="continue-btn" id="submitBtn" disabled>CONTINUE</button>
+            </form>
+            <a class="abort-btn" onclick="closeTerminal()">Abort Connection</a>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('dataModal');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function openTerminal(tier) {
+            document.getElementById('targetDisplay').innerText = "Registering: " + tier;
+            document.getElementById('tierInput').value = tier;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTerminal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function validateForm() {
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const address = document.getElementById('userAddress').value.trim();
+
+            const primaryFields = name.length > 0 && address.length > 0;
+            const contactFilled = phone.length > 0 || email.length > 0;
+
+            if (primaryFields && contactFilled) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('active');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
             font-size: 3rem;
             margin: 0;
             letter-spacing: -1.5px;
