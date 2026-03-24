@@ -12,110 +12,67 @@
             --card-bg: #0d0d0d;
             --border: rgba(255, 255, 255, 0.1);
             --text-dim: #888;
-            --white: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--dark-bg);
-            color: var(--white);
+            color: white;
             font-family: 'Outfit', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 60px 20px;
-            line-height: 1.6;
         }
 
-        /* HERO INTRO */
-        .hero {
-            text-align: center;
-            max-width: 750px;
-            margin-bottom: 80px;
-        }
+        /* 1. HERO SECTION - NO DUPLICATES */
+        .hero { text-align: center; max-width: 750px; margin-bottom: 80px; }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2.5rem, 8vw, 3.5rem);
             letter-spacing: -2px;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #fff 0%, var(--tech-blue) 100%);
+            background: linear-gradient(135deg, #fff, var(--tech-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
         .hero h2 {
+            color: var(--tech-blue);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 5px;
-            color: var(--tech-blue);
-            font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .hero p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
+        .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; }
 
-        /* CONTACT TERMINAL */
-        .contact-grid {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        /* 2. CONTACT TERMINAL */
+        .contact-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 80px; }
 
         .contact-btn {
             padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
-            color: var(--white);
+            color: white;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             font-weight: 500;
             font-size: 0.9rem;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: 0.4s;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .contact-btn:hover {
-            border-color: var(--tech-blue);
-            background: rgba(0, 210, 255, 0.08);
-            transform: translateY(-2px);
-        }
+        .contact-btn:hover { border-color: var(--tech-blue); background: rgba(0, 210, 255, 0.08); transform: translateY(-2px); }
 
-        /* DEPLOYMENT TIERS */
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        /* 3. DEPLOYMENT TIERS */
+        .section-tag { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; }
 
-        .section-tag {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            font-weight: 600;
-        }
-
-        .tier-container {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-            max-width: 1100px;
-        }
+        .tier-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 1100px; }
 
         .tier-card {
             background: var(--card-bg);
@@ -126,77 +83,34 @@
             display: flex;
             flex-direction: column;
             transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
         }
 
-        .tier-card:hover {
-            border-color: var(--tech-blue);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            transform: translateY(-10px);
-        }
+        .tier-card:hover { border-color: var(--tech-blue); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
 
-        .tier-label {
-            color: var(--tech-blue);
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+        .tier-label { color: var(--tech-blue); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; }
+        .tier-price { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; margin-bottom: 30px; }
+        .tier-price span { font-size: 1rem; color: var(--text-dim); font-weight: 300; }
 
-        .tier-price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .tier-price span {
-            font-size: 1rem;
-            color: var(--text-dim);
-            font-weight: 300;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 30px 0 40px 0;
-            flex-grow: 1;
-        }
-
-        .feature-list li {
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #ccc;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .feature-list li::before {
-            content: "→";
-            color: var(--tech-blue);
-            font-weight: 700;
-        }
+        .feature-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.95rem; color: #ccc; display: flex; align-items: flex-start; gap: 12px; }
+        .feature-list li::before { content: "→"; color: var(--tech-blue); font-weight: 700; }
 
         .select-btn {
             width: 100%;
             padding: 18px;
             border-radius: 18px;
             border: none;
-            background: var(--white);
-            color: #000;
+            background: white;
+            color: black;
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .select-btn:hover {
-            background: var(--tech-blue);
-            color: var(--white);
-        }
+        .select-btn:hover { background: var(--tech-blue); color: white; }
 
-        /* DATA MODAL */
+        /* 4. MODAL - NO DUPLICATES */
         #dataModal {
             display: none;
             position: fixed;
@@ -206,7 +120,6 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            overflow-y: auto;
             padding: 20px;
         }
 
@@ -219,79 +132,18 @@
             border: 1px solid var(--border);
         }
 
-        .modal-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        .modal-header p {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-        }
-
-        .input-group { margin-bottom: 22px; }
-        .input-group label {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--tech-blue);
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.7rem; color: var(--tech-blue); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
         .input-group input, .input-group textarea {
-            width: 100%;
-            background: #151515;
-            border: 1px solid #222;
-            padding: 16px;
-            border-radius: 14px;
-            color: var(--white);
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; background: #151515; border: 1px solid #222; padding: 15px; border-radius: 12px; color: white; font-family: inherit; outline: none; transition: 0.3s;
         }
-
-        .input-group input:focus { border-color: var(--tech-blue); background: #1a1a1a; }
+        .input-group input:focus { border-color: var(--tech-blue); }
 
         .continue-btn {
-            width: 100%;
-            padding: 20px;
-            background: #222;
-            color: #555;
-            border: none;
-            border-radius: 18px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: not-allowed;
-            transition: 0.4s;
+            width: 100%; padding: 20px; background: #222; color: #555; border: none; border-radius: 18px; font-weight: 700; cursor: not-allowed; transition: 0.4s;
         }
 
-        .continue-btn.active {
-            background: var(--tech-blue);
-            color: var(--white);
-            cursor: pointer;
-            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
-        }
-
-        .abort-btn {
-            display: block;
-            text-align: center;
-            margin-top: 25px;
-            color: #444;
-            text-decoration: none;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.5rem; }
-            .tier-card { width: 100%; }
-            .modal-content { padding: 30px; }
-        }
+        .continue-btn.active { background: var(--tech-blue); color: white; cursor: pointer; box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3); }
     </style>
 </head>
 <body>
@@ -299,29 +151,27 @@
     <div class="hero">
         <h1>Pramangsu Acharjee</h1>
         <h2>Web Infrastructure Architect</h2>
-        [span_0](start_span)<p>Designing secure, commission-free digital terminals for the modern enterprise[span_0](end_span). Built for absolute performance and long-term ownership.</p>
+        <p>Designing secure, commission-free digital terminals for the modern enterprise. Built for absolute performance and long-term ownership.</p>
         
         <div class="contact-grid">
-            [span_1](start_span)<a href="tel:+916001299901" class="contact-btn">📞 +91 60012 99901[span_1](end_span)</a>
-            [span_2](start_span)<a href="mailto:pramangsuacharjee883@gmail.com" class="contact-btn">✉️ Email Architect[span_2](end_span)</a>
+            <a href="tel:+916001299901" class="contact-btn">📞 +91 60012 99901</a>
+            <a href="mailto:pramangsuacharjee883@gmail.com" class="contact-btn">✉️ Email Architect</a>
         </div>
     </div>
 
-    <div class="section-header">
-        <span class="section-tag">Infrastructure Deployment Tiers</span>
-    </div>
+    <div class="section-tag">Infrastructure Deployment Tiers</div>
 
     <div class="tier-container">
         <div class="tier-card">
             <div class="tier-label">Managed Node</div>
             <div class="tier-price">₹3,000<span>/setup</span></div>
             <ul class="feature-list">
-                <li>₹1,000/month recurring maintenance</li>
+                <li>₹1,000/month Maintenance</li>
                 <li>Full Architect Management</li>
-                <li>Priority Infrastructure Updates</li>
+                <li>Priority Node Updates</li>
                 <li>Secure Managed Hosting</li>
             </ul>
-            <button class="select-btn" onclick="openTerminal('Managed Node (₹3,000)')">Initialize Tier</button>
+            <button class="select-btn" onclick="openTerminal('Managed Node (₹3,000)')">Get Started</button>
         </div>
 
         <div class="tier-card">
@@ -330,25 +180,23 @@
             <ul class="feature-list">
                 <li>One-time deployment cost</li>
                 <li>Pure Source Code Access</li>
-                <li>Zero recurring fees</li>
+                <li>Zero Recurring Fees</li>
                 <li>Lifetime Infrastructure Control</li>
             </ul>
-            <button class="select-btn" onclick="openTerminal('Independent Core (₹10,000)')">Initialize Tier</button>
+            <button class="select-btn" onclick="openTerminal('Independent Core (₹10,000)')">Get Started</button>
         </div>
     </div>
 
     <div id="dataModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>System Initialization</h2>
-                <p id="targetDisplay">Connecting to node...</p>
-            </div>
+            <h2 style="font-family:'Space Grotesk'; margin-bottom:10px;">System Initialization</h2>
+            <p id="targetDisplay" style="color:var(--text-dim); font-size:0.85rem; margin-bottom:30px;"></p>
 
             <form action="https://formspree.io/f/myknpkrw" method="POST" id="leadForm">
                 <input type="hidden" name="Deployment_Tier" id="tierInput">
                 
                 <div class="input-group">
-                    <label>Client Full Name *</label>
+                    <label>Full Name *</label>
                     <input type="text" name="name" id="userName" placeholder="Enter name" required oninput="validateForm()">
                 </div>
 
@@ -364,17 +212,17 @@
 
                 <div class="input-group">
                     <label>Physical Address *</label>
-                    <input type="text" name="address" id="userAddress" placeholder="Enter city, state" required oninput="validateForm()">
+                    <input type="text" name="address" id="userAddress" placeholder="City, State" required oninput="validateForm()">
                 </div>
 
                 <div class="input-group">
-                    <label>Business Objective (Optional)</label>
-                    <textarea name="objective" rows="2" placeholder="Tell me about your project..."></textarea>
+                    <label>Project Details (Optional)</label>
+                    <textarea name="details" rows="2" placeholder="Tell me about your project..."></textarea>
                 </div>
 
                 <button type="submit" class="continue-btn" id="submitBtn" disabled>CONTINUE</button>
             </form>
-            <a class="abort-btn" onclick="closeTerminal()">Abort Connection</a>
+            <p onclick="closeTerminal()" style="text-align:center; color:#444; margin-top:25px; cursor:pointer; font-size:0.8rem;">Abort Connection</p>
         </div>
     </div>
 
@@ -386,13 +234,9 @@
             document.getElementById('targetDisplay').innerText = "Registering: " + tier;
             document.getElementById('tierInput').value = tier;
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
         }
 
-        function closeTerminal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        function closeTerminal() { modal.style.display = 'none'; }
 
         function validateForm() {
             const name = document.getElementById('userName').value.trim();
@@ -400,470 +244,10 @@
             const email = document.getElementById('userEmail').value.trim();
             const address = document.getElementById('userAddress').value.trim();
 
-            const primaryFields = name.length > 0 && address.length > 0;
-            const contactFilled = phone.length > 0 || email.length > 0;
+            const mandatory = name.length > 0 && address.length > 0;
+            const contact = phone.length > 0 || email.length > 0;
 
-            if (primaryFields && contactFilled) {
-                submitBtn.disabled = false;
-                submitBtn.classList.add('active');
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.classList.remove('active');
-            }
-        }
-    </script>
-</body>
-</html>
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: -1.5px;
-            background: linear-gradient(to right, #fff, var(--tech-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            color: var(--tech-blue);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 10px 0 25px 0;
-            font-weight: 400;
-        }
-
-        .hero p {
-            color: var(--text-dim);
-            line-height: 1.6;
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-        }
-
-        /* DIRECT CONTACT BUTTONS */
-        .contact-grid {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-btn {
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            border: 1px solid var(--border);
-            color: white;
-            background: var(--card-bg);
-        }
-
-        .contact-btn:hover {
-            border-color: var(--tech-blue);
-            background: rgba(0, 210, 255, 0.1);
-        }
-
-        /* SUBSCRIPTION TIERS SECTION */
-        .section-tag {
-            color: var(--tech-blue);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .tier-container {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1100px;
-            width: 100%;
-        }
-
-        .tier-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 45px 35px;
-            width: 320px;
-            transition: 0.4s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tier-card:hover { border-color: var(--tech-blue); transform: translateY(-10px); }
-
-        .tier-label { font-weight: 600; color: var(--tech-blue); font-size: 0.8rem; margin-bottom: 15px; }
-        .tier-price { font-size: 3rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; margin-bottom: 30px; }
-        .tier-price span { font-size: 1rem; color: var(--text-dim); }
-
-        .feature-list { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; }
-        .feature-list li { margin-bottom: 18px; font-size: 0.95rem; display: flex; align-items: center; color: #ddd; }
-        .feature-list li::before { content: "→"; color: var(--tech-blue); margin-right: 12px; font-weight: bold; }
-
-        .select-btn {
-            width: 100%;
-            padding: 18px;
-            border-radius: 16px;
-            border: none;
-            background: white;
-            color: black;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .select-btn:hover { background: var(--tech-blue); color: white; }
-
-        /* DATA TERMINAL MODAL */
-        #dataModal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #0f0f0f;
-            padding: 40px;
-            border-radius: 35px;
-            width: 90%;
-            max-width: 480px;
-            border: 1px solid var(--border);
-        }
-
-        .input-box { margin-bottom: 20px; }
-        .input-box label { display: block; font-size: 0.7rem; color: var(--tech-blue); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-        .input-box input, .input-box textarea {
-            width: 100%;
-            background: #181818;
-            border: 1px solid #222;
-            padding: 15px;
-            border-radius: 12px;
-            color: white;
-            font-family: inherit;
-            outline: none;
-            box-sizing: border-box;
-        }
-        .input-box input:focus { border-color: var(--tech-blue); }
-
-        .continue-btn {
-            width: 100%;
-            padding: 18px;
-            background: #222;
-            color: #555;
-            border: none;
-            border-radius: 16px;
-            font-weight: 700;
-            cursor: not-allowed;
-            transition: 0.3s;
-        }
-
-        .continue-btn.active { background: var(--tech-blue); color: white; cursor: pointer; }
-    </style>
-</head>
-<body>
-
-    <div class="hero">
-        <h1>Pramangsu Acharjee</h1>
-        <h2>Web Infrastructure Architect</h2>
-        <p>Building high-performance, commission-free digital terminals for the modern enterprise. Scale your business without third-party limitations.</p>
-        
-        <div class="contact-grid">
-            <a href="tel:+916001299901" class="contact-btn">📞 +91 60012 99901</a>
-            <a href="mailto:pramangsuacharjee883@gmail.com" class="contact-btn">✉️ Email Architect</a>
-        </div>
-    </div>
-
-    <div class="section-tag">Deployment Tiers</div>
-
-    <div class="tier-container">
-        <div class="tier-card">
-            <div class="tier-label">MANAGED NODE</div>
-            <div class="tier-price">₹3,000<span>/setup</span></div>
-            <ul class="feature-list">
-                <li>₹1,000/month Maintenance</li>
-                <li>Architect Management</li>
-                <li>Priority Node Updates</li>
-                <li>Secure Hosting Infrastructure</li>
-            </ul>
-            <button class="select-btn" onclick="openTerminal('Managed Node (₹3,000)')">Initialize Tier</button>
-        </div>
-
-        <div class="tier-card" style="border-color: rgba(255,255,255,0.2);">
-            <div class="tier-label">INDEPENDENT CORE</div>
-            <div class="tier-price">₹10,000<span>/full</span></div>
-            <ul class="feature-list">
-                <li>One-time deployment cost</li>
-                <li>Pure Source Code Access</li>
-                <li>Zero Recurring Fees</li>
-                <li>Lifetime Infrastructure Control</li>
-            </ul>
-            <button class="select-btn" onclick="openTerminal('Independent Core (₹10,000)')">Initialize Tier</button>
-        </div>
-    </div>
-
-    <div id="dataModal">
-        <div class="modal-content">
-            <h2 style="font-family:'Space Grotesk'; margin:0 0 10px 0;">System Initialization</h2>
-            <p id="planDisplay" style="color:var(--text-dim); font-size: 0.85rem; margin-bottom:25px;">Connecting to secure server...</p>
-
-            <form action="https://formspree.io/f/myknpkrw" method="POST" id="leadForm">
-                <input type="hidden" name="Selected_Plan" id="planInput">
-                
-                <div class="input-box">
-                    <label>Full Name *</label>
-                    <input type="text" name="name" id="userName" placeholder="Enter full name" required oninput="checkLogic()">
-                </div>
-
-                <div class="input-box">
-                    <label>Phone Number (Mandatory if no Email)</label>
-                    <input type="tel" name="phone" id="userPhone" placeholder="+91 ..." oninput="checkLogic()">
-                </div>
-
-                <div class="input-box">
-                    <label>Email Address (Mandatory if no Phone)</label>
-                    <input type="email" name="email" id="userEmail" placeholder="yourname@domain.com" oninput="checkLogic()">
-                </div>
-
-                <div class="input-box">
-                    <label>Physical Address *</label>
-                    <input type="text" name="address" id="userAddress" placeholder="City, State" required oninput="checkLogic()">
-                </div>
-
-                <div class="input-box">
-                    <label>Project Scope (Optional)</label>
-                    <textarea name="business_reason" rows="2" placeholder="Briefly describe your business needs..."></textarea>
-                </div>
-
-                <button type="submit" class="continue-btn" id="submitBtn" disabled>CONTINUE</button>
-            </form>
-            <p onclick="closeTerminal()" style="text-align:center; color:#444; margin-top:20px; cursor:pointer; font-size:0.8rem;">Abort Connection</p>
-        </div>
-    </div>
-
-    <script>
-        const modal = document.getElementById('dataModal');
-        const submitBtn = document.getElementById('submitBtn');
-
-        function openTerminal(plan) {
-            document.getElementById('planDisplay').innerText = "Targeting: " + plan;
-            document.getElementById('planInput').value = plan;
-            modal.style.display = 'flex';
-        }
-
-        function closeTerminal() { modal.style.display = 'none'; }
-
-        function checkLogic() {
-            const name = document.getElementById('userName').value.trim();
-            const phone = document.getElementById('userPhone').value.trim();
-            const email = document.getElementById('userEmail').value.trim();
-            const address = document.getElementById('userAddress').value.trim();
-
-            const mandatoryFilled = name.length > 0 && address.length > 0;
-            const contactFilled = phone.length > 0 || email.length > 0;
-
-            if (mandatoryFilled && contactFilled) {
-                submitBtn.disabled = false;
-                submitBtn.classList.add('active');
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.classList.remove('active');
-            }
-        }
-    </script>
-</body>
-</html>
-        /* DATA TERMINAL MODAL */
-        #dataModal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #0f0f0f;
-            padding: 40px;
-            border-radius: 30px;
-            width: 90%;
-            max-width: 480px;
-            border: 1px solid var(--border);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .modal-header { margin-bottom: 25px; }
-        .modal-header h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 1.5rem; }
-        .modal-header p { color: var(--text-dim); font-size: 0.85rem; margin-top: 5px; }
-
-        .form-grid { display: grid; gap: 18px; }
-        .input-box { position: relative; }
-        .input-box label { display: block; font-size: 0.7rem; color: var(--tech-blue); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-        .input-box input, .input-box textarea {
-            width: 100%;
-            background: #181818;
-            border: 1px solid #222;
-            padding: 14px;
-            border-radius: 10px;
-            color: white;
-            font-family: inherit;
-            outline: none;
-            box-sizing: border-box;
-            transition: 0.3s;
-        }
-        .input-box input:focus { border-color: var(--tech-blue); background: #1a1a1a; }
-
-        .continue-btn {
-            width: 100%;
-            padding: 18px;
-            background: #222;
-            color: #555;
-            border: none;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: not-allowed;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .continue-btn.active {
-            background: var(--tech-blue);
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
-        }
-
-        .cancel-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #444;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <h1>Lumina Digital</h1>
-        <p>Infrastructure Deployment Tiers</p>
-    </div>
-
-    <div class="tier-container">
-        <div class="tier-card">
-            <div class="tier-label">MANAGED NODE</div>
-            <div class="tier-price">₹3,000<span>/setup</span></div>
-            <div class="tier-desc">Perfect for growing businesses needing architect support.</div>
-            <ul class="feature-list">
-                <li>₹1,000/month recurring fee</li>
-                <li>Full Architect Maintenance</li>
-                <li>Priority Infrastructure Updates</li>
-                <li>Managed Secure Hosting</li>
-            </ul>
-            <button class="select-btn" onclick="openTerminal('Managed Node (₹3,000)')">Get Started</button>
-        </div>
-
-        <div class="tier-card">
-            <div class="tier-label">INDEPENDENT CORE</div>
-            <div class="tier-price">₹10,000<span>/full</span></div>
-            <div class="tier-desc">Complete source code ownership and zero monthly fees.</div>
-            <ul class="feature-list">
-                <li>One-time deployment cost</li>
-                <li>Pure Source Code Access</li>
-                <li>Full Client-Side Control</li>
-                <li>Zero Recurring Fees</li>
-            </ul>
-            <button class="select-btn" onclick="openTerminal('Independent Core (₹10,000)')">Get Started</button>
-        </div>
-    </div>
-
-    <div id="dataModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>System Initialization</h2>
-                <p id="planDisplay">Targeting Configuration...</p>
-            </div>
-
-            <form action="https://formspree.io/f/myknpkrw" method="POST" id="leadForm">
-                <input type="hidden" name="_subject" value="New Lumina Digital Client Lead">
-                <input type="hidden" name="Selected_Plan" id="planInput">
-                
-                <div class="form-grid">
-                    <div class="input-box">
-                        <label>Full Name *</label>
-                        <input type="text" name="name" id="userName" placeholder="Pramangsu Acharjee" required oninput="checkLogic()">
-                    </div>
-
-                    <div class="input-box">
-                        <label>Phone Number (Mandatory if no Email)</label>
-                        <input type="tel" name="phone" id="userPhone" placeholder="+91..." oninput="checkLogic()">
-                    </div>
-
-                    <div class="input-box">
-                        <label>Email Address (Mandatory if no Phone)</label>
-                        <input type="email" name="email" id="userEmail" placeholder="name@domain.com" oninput="checkLogic()">
-                    </div>
-
-                    <div class="input-box">
-                        <label>Physical Address *</label>
-                        <input type="text" name="address" id="userAddress" placeholder="Lanka, Assam" required oninput="checkLogic()">
-                    </div>
-
-                    <div class="input-box">
-                        <label>Business Details (Optional)</label>
-                        <textarea name="business_reason" rows="2" placeholder="Tell me about your business..."></textarea>
-                    </div>
-
-                    <button type="submit" class="continue-btn" id="submitBtn" disabled>CONTINUE</button>
-                </div>
-            </form>
-            <a class="cancel-link" onclick="closeTerminal()">Aborted Connection</a>
-        </div>
-    </div>
-
-    <script>
-        const modal = document.getElementById('dataModal');
-        const submitBtn = document.getElementById('submitBtn');
-
-        function openTerminal(plan) {
-            document.getElementById('planDisplay').innerText = "Registering: " + plan;
-            document.getElementById('planInput').value = plan;
-            modal.style.display = 'flex';
-        }
-
-        function closeTerminal() {
-            modal.style.display = 'none';
-        }
-
-        function checkLogic() {
-            const name = document.getElementById('userName').value.trim();
-            const phone = document.getElementById('userPhone').value.trim();
-            const email = document.getElementById('userEmail').value.trim();
-            const address = document.getElementById('userAddress').value.trim();
-
-            // MANDATORY: Name and Address
-            const mandatoryFilled = name.length > 0 && address.length > 0;
-            // EITHER: Phone or Email
-            const contactFilled = phone.length > 0 || email.length > 0;
-
-            if (mandatoryFilled && contactFilled) {
+            if (mandatory && contact) {
                 submitBtn.disabled = false;
                 submitBtn.classList.add('active');
             } else {
